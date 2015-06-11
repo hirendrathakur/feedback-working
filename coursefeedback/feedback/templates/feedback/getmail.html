@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>WELCOME TO STUDENT'S FEEDBACK ON COURSES</title>
+{% load staticfiles %}
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'feedback/navi.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'feedback/forms.css' %}" />
+
+<link rel="stylesheet" type="text/css" href="{% static 'feedback/login.css' %}" />
+</head>
+<body>
+
+<div class="wrapper col0">
+  <div id="topbar">
+   
+   
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col1">
+  <div id="header">
+    <div id="logo">
+    <img src="/static/images/IIT_BHU_Logo.jpg" width="250px" style="float:left; padding-right:20px;"/>
+      <h1 style="padding-top:5px;"><a href="index.html">STUDENT'S FEEDBACK ON COURSES</a></h1>
+      <p>EVEN SEMESTER 2014-15</p>
+    </div>
+    <div class="fl_right">
+      <ul>
+
+        <li class="last"><a href="mailto:student.feedback@itbhu.ac.in">Report a problem</a></li>
+        <li><a href="#">Instructions</a></li>
+      </ul>
+      <p>Mail: student.feedback@itbhu.ac.in</p>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+    <div id="login">
+   
+
+
+  <form action="/getmail/" align="center" id="myForm"  onsubmit="return validate_email()" role="form" class="form-inline" method="post">
+      {% csrf_token %}
+
+    <p>Please enter your Institute email address and click submit. On submission, a system generated email will be sent
+      to your Institute email address with the link for giving your feedback on courses that you have undergone during the recently concluded semester.
+  </p>
+      <div class="form-group">
+          <label  for="email">Email Address: </label>
+
+      <input name="email" type="email" id="email"  class="form-control" placeholder="Enter your Official Email ID" />
+          </div>
+
+      <button class="btn btn-submit" type="submit" id="submit_button" style="-webkit-box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
+	background-color:#5B74A8;
+	border:1px solid #29447E;
+	font-family:'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
+	font-size:12px;
+	font-weight:700;
+	padding:8px 16px;
+	height:32px;
+	color:#fff;
+	margin-left:385px;
+	margin-top: 5px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px"  >Submit <span class="glyphicon glyphicon-ok-sign"></span> </button>
+
+    </form>
+
+{{error}}
+</div>
+    </div>
+    </div>
+    </div>
+
+</body>
+</html>

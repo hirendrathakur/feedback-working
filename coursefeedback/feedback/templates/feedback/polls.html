@@ -1,0 +1,20 @@
+
+<form action ="" method = "post">
+    {% for question in question_list %}
+        <ol>
+            {{question.question_text}}<br>
+            {% if error_message %}
+                <p><strong>{{error_message}}</strong></p>
+            {% endif %}
+
+            {% csrf_token %}
+            {% for choice in question.choice_set.all %}
+               <input type = "radio" name = "{{question.question_text}}" value = "{{ choice.id }}" required>{{choice.choice_text}}
+            {% endfor %}
+        </ol>
+    {% endfor %}
+    <input type = "submit" value = "vote" />
+</form>
+
+
+

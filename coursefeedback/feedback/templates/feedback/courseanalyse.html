@@ -1,0 +1,47 @@
+{% extends "feedback/layout.html" %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+{% block body %}
+<body>
+{% for course in course_list %}
+<div class="wrapper col4">
+  <div id="container">
+    <h1>{{course.professor.prof_name}}</h1>
+    <h1>{{course.subject.subject_name}}</h1><br>
+    {% for result in course.result_set.all %}
+        <ol>
+           <h3>{{result.question}}</h3><br>
+            Excellent % =   {% widthratio result.excellent_votes result.total_votes 1 %}
+            Very Good % =   {{result.verygood_votes}}
+            Good Votes % =   {{result.good_votes}}
+            Fair % =   {{result.fair_votes}}
+            Poor % =   {{result.poor_votes}}
+        </ol>
+    {% endfor %}
+    <h1>Comment 1</h1>
+    {% for comment in course.comment_set.all %}
+        <ol>{{comment.comment_1}}</ol>
+    {% endfor %}
+    <h1>Comment 2</h1>
+    {% for comment in course.comment_set.all %}
+        <ol>{{comment.comment_2}}</ol>
+    {% endfor %}
+    <h1>Comment 3</h1>
+    {% for comment in course.comment_set.all %}
+        <ol>{{comment.comment_3}}</ol>
+    {% endfor %}
+    <h1>Comment 4</h1>
+    {% for comment in course.comment_set.all %}
+        <ol>{{comment.comment_4}}</ol>
+    {% endfor %}
+
+{% endfor %}
+      </div>
+    </div>
+
+</body>
+{% endblock %}
+</html>

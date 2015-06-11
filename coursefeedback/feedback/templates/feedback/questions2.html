@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+{% extends "feedback/layout.html" %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+   {% block title %} <title> Course Dashboard</title> {% endblock %}
+</head>
+{% block nav %}
+<div class="wrapper col2">
+  <div id="topnav">
+   <ul><li>Course Dashboard</li>
+
+       </ul>
+      </div>
+    </div>
+{% endblock %}
+<body>
+{% block body %}
+<div>
+<div class="wrapper col4">
+  <div id="container">
+  <div class="ls">
+<form action ="" method = "post">
+    <h1>{{subject.subject_name}}</h1>
+    <h1>{{professor.prof_name}}</h1><br>
+    <h1><b>1. Course Organisation</b></h1><br><b><i><k style="font-size:13px;padding:1px;">To add Comment On Course Organisation scroll to bottom of page.<k></i></b>
+    {% for result in result_list1 %}
+        <ol>
+            <h4><b>{{result.question.question_text}}</b></h4><br>
+            {% csrf_token %}
+            <input type = "radio" name = "{{result.question.question_text}}" value = "excellent" required /><b>Excellent</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "verygood" required /><b>Very Good</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "good" required /><b>Good</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "fair" required /><b>Fair</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "poor" required /><b>Poor</b>
+        </ol>
+    {% endfor %}<br>
+    <h1><b>2. Presentation</b></h1><br><b><i> <k style="font-size:13px;padding:1px;">To add Comment On Presentation scroll to bottom of page.<k></i></b>
+    {% for result in result_list2 %}
+        <ol>
+            <h4><b>{{result.question.question_text}}</b></h4><br>
+            {% csrf_token %}
+            <input type = "radio" name = "{{result.question.question_text}}" value = "excellent" required /><b>Excellent</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "verygood" required /><b>Very Good</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "good" required /><b>Good</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "fair" required /><b>Fair</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "poor" required /><b>Poor</b>
+        </ol>
+    {% endfor %}<br>
+    <h1><b>3. Interaction and Rapport</b></h1><br><b><i> <k style="font-size:13px;padding:1px;">To add Comment On Interaction and Rapport scroll to bottom of page.<k> </i></b>
+    {% for result in result_list3 %}
+        <ol>
+            <h4><b>{{result.question.question_text}}</b></h4><br>
+            {% csrf_token %}
+            <input type = "radio" name = "{{result.question.question_text}}" value = "excellent" required /><b>Excellent</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "verygood" required /><b>Very Good</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "good" required /><b>Good</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "fair" required /><b>Fair</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "poor" required /><b>Poor</b>
+        </ol>
+    {% endfor %}<br>
+    <h1><b>4. Examinations and Grading</b></h1><br><b><i> <k style="font-size:13px;padding:1px;">To add Comment On Examinations and Grading scroll to bottom of page.<k> </i></b>
+    {% for result in result_list4 %}
+        <ol>
+            <h4><b>{{result.question.question_text}}</b></h4><br>
+            {% csrf_token %}
+            <input type = "radio" name = "{{result.question.question_text}}" value = "excellent" required /><b>Excellent</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "verygood" required /><b>Very Good</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "good" required /><b>Good</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "fair" required /><b>Fair</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "poor" required /><b>Poor</b>
+        </ol>
+    {% endfor %}<br>
+    <h1><b>5. Overall</b></h1>
+    {% for result in result_list5 %}
+        <ol>
+            <h4><b>{{result.question.question_text}}</b></h4><br>
+            {% csrf_token %}
+            <input type = "radio" name = "{{result.question.question_text}}" value = "excellent" required /><b>Excellent</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "verygood" required /><b>Very Good</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "good" required /><b>Good</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "fair" required /><b>Fair</b>
+            <input type = "radio" name = "{{result.question.question_text}}" value = "poor" required /><b>Poor</b>
+        </ol>
+    {% endfor %}<br>
+    <br><h5><b>Comment on Course Organisation</b></h5>
+    <input type = "text" name = "comment_1" value = "" style="width: 500px;height: 80px;padding:5px;margin:15px;"/>
+    <br><h5><b>Comment on Presentation</b></h5>
+    <input type = "text" name = "comment_2" value = "" style="width: 500px;height: 80px;padding:5px;margin:15px;font-size:"/>
+    <br><h5><b>Comment on Interaction and Rapport</b></h5>
+    <input type = "text" name = "comment_3" value = "" style="width: 500px;height: 80px;padding:5px; margin:15px;"/>
+    <br><h5><b>Comment on Examinations and Grading</b></h5>
+    <br><br>
+    <input type = "submit" value = "Submit Feedback" style="border : solid 2px #ffffff;
+    border-radius : 3px;
+    moz-border-radius : 3px;
+    font-size : 20px;
+    color : #ffffff;
+    padding : 1px 17px;
+    background-color : #0a66c9;
+    margin-left:250px;" />
+</form>
+
+<br>
+<br>
+
+
+</div>
+</div>
+</div>
+    </div>
+    </div>
+{% endblock %}
+</body>
+
+</html>

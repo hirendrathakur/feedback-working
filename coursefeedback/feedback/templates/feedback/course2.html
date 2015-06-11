@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+{% extends "feedback/layout.html" %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+   {% block title %} <title> STUDENTS'S FEEDBACK ON COURSES EVEN SEMESTER 2014-15</title> {% endblock %}
+</head>
+{% block nav %}
+<div class="wrapper col2">
+  <div id="topnav">
+   <ul><li>Course Dashboard</li>
+
+       </ul>
+      </div>
+    </div>
+{% endblock %}
+<body>
+{% block body %}
+<div>
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+    <ol>
+
+<b>Even though you have logged into the system using your login credentials,
+your identity for feedback is kept anonymous.</b><br>
+Following are the courses you have undergone during the recently concluded semester. Please give your feedback for all the courses. 
+If the course is taught by more than one faculty member, the course will appear multiple times, together with the name of
+each of the faculty members. The feedback needs to be given teacher-wise.
+<h5><b>Completed Feedback Courses</b></h5>
+
+{% for done in done_list %}
+    {% if done.done %}
+        <li style="font-size:18px;">
+                <b>{{done.course.subject.subject_code}} </b><br>
+                {{done.course.subject.subject_name}}<br>
+                {{done.course.professor.prof_name}}- Done
+                <br>
+        </li>
+    {% endif %}
+{% endfor %}
+<h5><b> Pending List of Courses For Feedback</b></h5>
+{% for done in done_list %}
+        {% if not done.done %}
+
+        <li style="font-size:18px;">
+           <b> {{done.course.subject.subject_code}} </b> <br>
+            {{done.course.subject.subject_name}}<br>
+            <ol><a href = "{% url 'feedback:polls' done.course.professor.id student.roll_no done.course.subject.id key %}">
+                {{done.course.professor.prof_name}}</a></ol>
+            <br>
+        </li>
+    {% endif %}
+{% endfor %}
+ </ol>
+
+
+</div>
+</div>
+    </div>
+    </div>
+{% endblock %} 
+</body>
+
+</html>

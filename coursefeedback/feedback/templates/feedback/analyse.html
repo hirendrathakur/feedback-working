@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "feedback/layout.html" %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+{% block body %}
+<body>
+
+<div class="wrapper col4">
+    <div id="container">
+        <h5><b>List of Courses and Instructors</b></h5>
+    {% for professor in professor_list %}
+        <a href = "{% url 'feedback:courseanalyse' professor.id %}">{{professor.prof_name}}</a><br>
+    {% endfor %}
+    </div>
+    </div>
+</body>
+{% endblock %}
+</html>

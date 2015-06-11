@@ -1,0 +1,24 @@
+
+<form action ="" method = "post">
+    {% for result in result_list %}
+        <ol>
+            {{result.question.question_text}}<br>
+            {% csrf_token %}
+            <input type = "radio" name = "{{result.question.question_text}}" value = "excellent" required>Excellent
+            <input type = "radio" name = "{{result.question.question_text}}" value = "verygood" required>Very Good
+            <input type = "radio" name = "{{result.question.question_text}}" value = "good" required>Good
+            <input type = "radio" name = "{{result.question.question_text}}" value = "fair" required>Fair
+            <input type = "radio" name = "{{result.question.question_text}}" value = "poor" required>Poor
+        </ol>
+    {% endfor %}
+    <input type = "text" name = "comment_1" value = "" required>Comment 1<br>
+    <input type = "text" name = "comment_2" value = "" required>Comment 2<br>
+    <input type = "text" name = "comment_3" value = "" required>Comment 3<br>
+    <input type = "text" name = "comment_4" value = "" required>Comment 4<br>
+
+
+    <input type = "submit" value = "vote" />
+</form>
+
+
+

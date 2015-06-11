@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+
+<title>Welcome to the Student Feedback on Courses Portal</title>
+<link rel="stylesheet" type="text/css" href="{% static 'feedback/navi.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'feedback/forms.css' %}" />
+
+<link rel="stylesheet" type="text/css" href="{% static 'feedback/layout.css' %}" />
+{% block title %} <title></title> {% endblock %}
+</head>
+<body>
+<div class="wrapper col0">
+  <div id="topbar">
+   
+   
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col1">
+  <div id="header">
+    <div id="logo">
+    
+    <img src="/static/images/IIT_BHU_Logo.jpg" width="240px" style="float:left; padding-right:4px;"/>
+      <h1><a href="index.html">STUDENTS' FEEDBACK ON COURSES </a></h1>
+      <p>EVEN SEMESTER 2014-15</p>
+    </div>
+    <div class="fl_right">
+      <ul>
+        <li class="last"><a href="#">Search</a></li>
+        <li><a href="#">About this site</a></li></ul>
+      <p>Mail: student.feedback@itbhu.ac.in</p>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+{% block nav %}
+<div class="wrapper col2">
+  <div id="topnav">
+
+  
+
+  </div>
+</div>
+
+{% endblock %}{% block body %}  {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+from django.db import models
+from datetime import datetime
+
+class Student(models.Model):
+    name = models.CharField(max_length=100, null=True, blank=True)
+    roll_no = models.CharField(max_length=100, null=False, blank=False)
+    email = models.EmailField(null=False, blank=False)
+    branch=models.CharField(max_length=100)
+    semester=models.IntegerField(max_length=2)
+    student_date=models.DateTimeField(default=datetime.now())
+    course_type=models.CharField(max_length=20)
+
+
+    def was_published_recently(self):
+        return self.student_date<=datetime.now()
+    was_published_recently.admin_order_field = 'student_date'
+    #to display an icon other than boolean information
+    was_published_recently.boolean = True
+    # to display a name to the column
+    was_published_recently.short_description = 'Added Recently'
+
+    def __str__(self):
+        return self.roll_no
+
+class Subject(models.Model):
+    students=models.ManyToManyField(Student)
+    subject_code = models.CharField(max_length=20)
+    subject_name= models.CharField(max_length=200)
+    subject_date = models.DateTimeField(default=datetime.now())
+
+
+    def was_published_recently(self):
+        return self.subject_date<=datetime.now()
+    was_published_recently.admin_order_field = 'subject_date'
+    #to display an icon other than boolean information
+    was_published_recently.boolean = True
+    # to display a name to the column
+    was_published_recently.short_description = 'Added Recently'
+    def __str__(self):
+        return self.subject_code
+
+
+class Professor(models.Model):
+    prof_name=models.CharField(max_length=100)
+    prof_id = models.CharField(max_length=20)
+    dept=models.CharField(max_length=4)
+    prof_date = models.DateTimeField(default=datetime.now())
+
+    def was_published_recently(self):
+        return self.prof_date<=datetime.now()
+    was_published_recently.admin_order_field = 'prof_date'
+    #to display an icon other than boolean information
+    was_published_recently.boolean = True
+    # to display a name to the column
+    was_published_recently.short_description = 'Added Recently?'
+
+    def __str__(self):
+        return self.prof_name
+
+class Course(models.Model):
+    subject = models.ForeignKey(Subject)
+    professor=models.ForeignKey(Professor)
+    prof_date = models.DateTimeField(default=datetime.now())
+
+    def __unicode__(self):
+        return u'%s %s' % (self.subject, self.professor)
+
+
+class Question(models.Model):
+    question_text = models.CharField(max_length = 200)
+    question_date= models.DateTimeField(default=datetime.now())
+    def __str__(self):
+        return self.question_text
+
+    def was_published_recently(self):
+        return self.question_date<=datetime.now()
+    was_published_recently.admin_order_field = 'question_date'
+    #to display an icon other than boolean information
+    was_published_recently.boolean = True
+    # to display a name to the column
+    was_published_recently.short_description = 'Published Recently?'
+
+class Result(models.Model):
+    question = models.ForeignKey(Question)
+    course = models.ForeignKey(Course)
+    excellent_votes = models.IntegerField(default = 0)
+    verygood_votes = models.IntegerField(default = 0)
+    good_votes = models.IntegerField(default = 0)
+    fair_votes = models.IntegerField(default = 0)
+    poor_votes = models.IntegerField(default = 0)
+    total_votes = models.IntegerField(default = 0)
+
+    def __unicode__(self):
+        return u'%s %s' %(self.course, self.question)
+
+class Done(models.Model):
+    course=models.ForeignKey(Course)
+    student=models.ForeignKey(Student)
+    done=models.IntegerField(max_length=1,default=0)
+
+    def __unicode__(self):
+        return u'%s   %s    %s' % (self.student, self.course, self.done)
+
+class Comment(models.Model):
+    course= models.ForeignKey(Course)
+    comment_1 = models.CharField(max_length=1000, null=True, blank=True)
+    comment_2 = models.CharField(max_length=1000, null=True, blank=True)
+    comment_3 = models.CharField(max_length=1000, null=True, blank=True)
+    comment_4 = models.CharField(max_length=1000, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' %(self.course)
+
+
+
+
+
+

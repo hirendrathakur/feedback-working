@@ -4,12 +4,12 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-   {% block title %} <title> Course Dashboard</title> {% endblock %}
+   {% block title %} <title>Questions List - IIT(BHU) Feedback</title> {% endblock %}
 </head>
 {% block nav %}
 <div class="wrapper col2">
   <div id="topnav">
-   <ul><li>Course Dashboard</li>
+   <ul><li><a href="/">Home</a></li><li> &#9658;</li><li><a href="{% url 'feedback:index' key %}"> Course Dashboard</a> </li><li> &#9658;</li><li>Questions List</li>
 
        </ul>
       </div>
@@ -21,9 +21,9 @@
 <div class="wrapper col4">
   <div id="container">
   <div class="ls">
+
 <form action ="" method = "post">
-    <h1>{{subject.subject_name}}</h1>
-    <h1>{{professor.prof_name}}</h1><br>
+    <h1>{{subject.subject_name}}<br> {{professor.prof_name}}</h1><br>
     <h1><b>1. Course Organisation</b></h1><br><b><i><k style="font-size:13px;padding:1px;">To add Comment On Course Organisation scroll to bottom of page.<k></i></b>
     {% for result in result_list1 %}
         <ol>
@@ -111,7 +111,9 @@
 </div>
     </div>
     </div>
+
 {% endblock %}
+
 </body>
 
 </html>

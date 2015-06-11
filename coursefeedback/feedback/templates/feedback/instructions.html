@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>WELCOME TO STUDENT'S FEEDBACK ON COURSES</title>
+{% load staticfiles %}
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'feedback/navi.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'feedback/forms.css' %}" />
+
+<link rel="stylesheet" type="text/css" href="{% static 'feedback/login.css' %}" />
+</head>
+<body>
+
+<div class="wrapper col0">
+  <div id="topbar">
+   
+   
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col1">
+  <div id="header">
+    <div id="logo">
+    <img src="/static/images/IIT_BHU_Logo.jpg" width="240px" style="float:left; padding-right:4px;"/>
+      <h1 style="padding-top:5px;"><a href="index.html">STUDENT'S FEEDBACK ON COURSES</a></h1>
+      <p>EVEN SEMESTER 2014-15</p>
+    </div>
+    <div class="fl_right">
+      <ul>
+
+        <li class="last"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=student.feedback@itbhu.ac.in&su=Problem while filling Feedback&body=Explain Your Problem Here" target="_blank">Report a problem</a></li>
+        <li><a href="/instructions">Instructions</a></li>
+      </ul>
+      <p>Mail: student.feedback@itbhu.ac.in</p>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+    <div id="instruction">
+   
+
+
+  <form align="left" id="myForm"  onsubmit="return validate_email()" role="form" class="form-inline" method="post">
+      
+
+    <p>1. Enter your Institute email address and click submit. If @iitbhu.ac.in doesn't work use @itbhu.ac.in.
+        <br><br>
+        2. On submission, a system generated email will be sent to your Institute email address with the link for giving your feedback on courses that you have undergone during the recently concluded semester.
+        <br><br>
+        3. Click on the link sent to your gmail, then click on the name of a particular professor from the list of courses on the course dashboard page.
+   <br><br>
+        4. Fill the checkboxes of questions then click on "Submit Feedback".
+        <br><br>
+        5. ......and it's Done.
+       <br><br>
+        <b><i>If you are facing any problem with feedback portal for e.g. unable to receive mail, course is not listed etc. feel free to contact us at student.feedback@itbhu.ac.in
+</i></b>
+        <br> <br>
+        <a href="/" style="font-size:18px;">Return to home page</a>
+    </p>
+     
+
+    </form>
+
+</div>
+    </div>
+    </div>
+    </div>
+
+</body>
+</html>

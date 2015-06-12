@@ -92,7 +92,8 @@ def polls(request, prof_pk, stud_roll, sub_pk, key):
                                                                     'result_list5': result_list[19:21],
                                                                     'course': course,
                                                                     'professor': professor,
-                                                                    'subject': subject,})
+                                                                    'subject': subject,
+                                                                    'key':student.key,})
     else:
         return render(request, 'feedback/submitted.html',{'key':student.key,})
 
@@ -135,3 +136,5 @@ def getmail(request):
         send_mail('Course Feedback Portal', text, settings.EMAIL_HOST_USER, [email], fail_silently=False)
         #return HttpResponse("<b>An email has been sent to your email address.Please Follow the link in the email</b>")
         return render(request, 'feedback/sentmail.html')
+def instruction(request):
+    return render(request, 'feedback/instructions.html')

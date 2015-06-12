@@ -16,7 +16,7 @@ ul li {
   display: inline-block;
   margin-right: -4px;
   position: relative;
-  padding: 15px 20px;
+  padding: 15px 10px;
   background: #FFFFCC;
   cursor: pointer;
   -webkit-transition: all 0.2s;

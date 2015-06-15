@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.1.1.239','14.139.41.172']
 
 
 # Application definition
@@ -78,7 +78,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'coursefeedback_db',
         'USER' : 'root',
-        'PASSWORD' : '1234',
+        'PASSWORD' : '13apr2015',
         'HOST' : '127.0.0.1',
         'PORT': '3306',
 
